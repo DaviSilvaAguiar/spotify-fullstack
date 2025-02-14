@@ -5,10 +5,10 @@ const Main = () => {
   return (
     <div className="main">
       {/* Item List de Artistas*/}
-      <ItemList />
+      <ItemList title="Artistas" items={5}/>
 
       {/* Item List de Músicas*/}
-      <ItemList />
+      <ItemList title="Músicas" items={10}/>
     </div>
   );
 };
