@@ -120,5 +120,8 @@ const artistArray = [
     image: "https://i.scdn.co/image/ab67616100005174a4d221889e774d4b173aeaa0",
     name: "Henry Freitas",
     banner: "https://i.scdn.co/image/ab676186000010169415572375bac1960f9de7e5",
-  },
+  }
 ];
+
+export { artistArray };
+

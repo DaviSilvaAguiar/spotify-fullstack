@@ -2,28 +2,29 @@ import { artistArray } from "../../front-end/src/assets/database/artists.js";
 import { songsArray } from "../../front-end/src/assets/database/songs.js";
 import { db } from "./connect.js";
 
-const newArtistArray = artistArray.map((currentArtistObj) => {
-  const newArtistObj = { ...currentArtistObj };
-  delete newArtistObj.id;
+const insertData = async () => {
+  const newArtistArray = artistArray.map((currentArtistObj) => {
+    const newArtistObj = { ...currentArtistObj };
+    delete newArtistObj.id;
 
-  return newArtistObj;
-});
+    return newArtistObj;
+  });
 
-const newSongsArray = songsArray.map((currentSongObj) => {
-  const newSongObj = { ...currentSongObj };
-  delete newSongObj.id;
+  const newSongsArray = songsArray.map((currentSongObj) => {
+    const newSongObj = { ...currentSongObj };
+    delete newSongObj.id;
 
-  return newSongObj;
-});
+    return newSongObj;
+  });
 
-const responseSongs = await db.collection("songs").insertMany(newSongsArray);
-const responseArtists = await db
-  .collection("artists")
-  .insertMany(newArtistArray);
+  const responseSongs = await db.collection("songs").insertMany(newSongsArray);
+  const responseArtists = await db
+    .collection("artists")
+    .insertMany(newArtistArray);
 
-console.log(responseSongs);
-console.log(responseArtists);
+  console.log(responseSongs);
+  console.log(responseArtists);
+};
 
-// console.log(newArtistArray);
-// console.log(newSongsArray);
-// console.log(songsArray);
+// Chama a função para inserir os dados
+insertData();
